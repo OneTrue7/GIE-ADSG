@@ -49,3 +49,8 @@ const observateurChiffres = new IntersectionObserver((elements) => {
 }, { threshold: 0.6 });
 
 document.querySelectorAll('[data-count]').forEach(c => observateurChiffres.observe(c));
+const mail = document.getElementById('mail');
+if (mail && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  mail.href = 'mailto:anddefarsunugox@gmail.com';
+  mail.removeAttribute('target');
+}

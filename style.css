@@ -231,8 +231,3 @@ h1,h2,h3{font-family:var(--titre);line-height:1.05;letter-spacing:-.02em}
 #mot.mot-sable .complet__corps strong{color:var(--vert)}
 #mot.mot-sable .mot__txt .mot__fin{color:var(--vert)}
 #mot.mot-sable .mot__txt .signature{color:var(--texte)}
-.mail-mobile{display:none}
-@media (hover:none),(pointer:coarse){
-  .mail-pc{display:none}
-  .mail-mobile{display:inline}
-}
