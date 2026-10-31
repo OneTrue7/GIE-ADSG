@@ -54,3 +54,24 @@ if (mail && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
   mail.href = 'mailto:anddefarsunugox@gmail.com';
   mail.removeAttribute('target');
 }
+const wa = document.querySelector('.wa');
+if (wa) {
+  const fermerWa = () => wa.removeAttribute('open');
+
+  wa.querySelectorAll('.wa__menu a').forEach(lien =>
+    lien.addEventListener('click', () => setTimeout(fermerWa, 150))
+  );
+
+  document.addEventListener('click', (e) => {
+    if (!wa.contains(e.target)) fermerWa();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fermerWa();
+  });
+
+  window.addEventListener('pageshow', fermerWa);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) fermerWa();
+  });
+}
