@@ -1,3 +1,15 @@
+document.documentElement.classList.add('js');
+const observateur = new IntersectionObserver((elements) => {
+  elements.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      observateur.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observateur.observe(el));
+
 const header = document.getElementById('header');
 
 function majEntete() {
@@ -17,17 +29,6 @@ burger.addEventListener('click', () => {
 nav.querySelectorAll('a').forEach(lien =>
   lien.addEventListener('click', () => nav.classList.remove('open'))
 );
-
-const observateur = new IntersectionObserver((elements) => {
-  elements.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.classList.add('visible');
-      observateur.unobserve(el.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.reveal').forEach(el => observateur.observe(el));
 
 const observateurChiffres = new IntersectionObserver((elements) => {
   elements.forEach(e => {
@@ -50,10 +51,6 @@ const observateurChiffres = new IntersectionObserver((elements) => {
 
 document.querySelectorAll('[data-count]').forEach(c => observateurChiffres.observe(c));
 
-if (mail && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-  mail.href = 'mailto:anddefarsunugox@gmail.com';
-  mail.removeAttribute('target');
-}
 const wa = document.querySelector('.wa');
 if (wa) {
   const fermerWa = () => wa.removeAttribute('open');
@@ -73,11 +70,5 @@ if (wa) {
   window.addEventListener('pageshow', fermerWa);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) fermerWa();
-  });
-}
-
-
-    copier.textContent = 'Copié ✔';
-    setTimeout(() => { copier.textContent = 'Copier'; }, 2000);
   });
 }
