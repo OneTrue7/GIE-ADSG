@@ -31,14 +31,12 @@
 <main id="accueil">
 
   <section class="hero">
-    <div class="container">
-      <p class="tag">GIE · Ndour Ndour · Mbadakhoune · Kaolack</p>
-      <h1>Ensemble, bâtissons notre terroir.</h1>
-      <p class="t">Le GIE And Defar Sunu Gox rassemble les habitants de Ndour Ndour pour développer ensemble l’agriculture, l’élevage, la pêche et les services du village.</p>
-      
-  
-    </div>
-  </section>
+  <div class="hero__card">
+    <p class="tag">GIE · Ndour Ndour · Mbadakhoune · Kaolack</p>
+    <h1>Ensemble, bâtissons notre terroir.</h1>
+    <p class="t">Le GIE And Defar Sunu Gox rassemble les habitants de Ndour Ndour pour développer ensemble l’agriculture, l’élevage, la pêche et les services du village.</p>
+  </div>
+</section>
 
   <section class="chiffres">
     <div class="container cg">
@@ -191,7 +189,7 @@
       </div>
     </div>
   </section>
-
+s
   <section class="section vert" id="contact">
     <div class="container contact">
       <div class="reveal">
@@ -199,7 +197,18 @@
         <p class="intro">Une question, une demande d’adhésion, une idée de partenariat ? Écrivez-nous ou passez au magasin villageois.</p>
       </div>
       <ul class="cl reveal">
-        <li>✉️ <a id="mail" href="https://mail.google.com/mail/?view=cm&to=gieanddefarsunugox@gmail.com&su=Demande%20d%27information" target="_blank" rel="noopener">gieanddefarsunugox@gmail.com</a></li>
+        <li>
+  <details class="mailmenu" id="mailmenu">
+    <summary>✉️ anddefarsunugox@gmail.com</summary>
+    <div class="mailmenu__liste">
+      <a href="mailto:anddefarsunugox@gmail.com?subject=Demande%20d%27information">Application mail de mon appareil</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=anddefarsunugox@gmail.com&su=Demande%20d%27information" target="_blank" rel="noopener">Gmail</a>
+      <a href="https://outlook.live.com/mail/0/deeplink/compose?to=anddefarsunugox@gmail.com&subject=Demande%20d%27information" target="_blank" rel="noopener">Outlook</a>
+      <a href="https://compose.mail.yahoo.com/?to=anddefarsunugox@gmail.com&subject=Demande%20d%27information" target="_blank" rel="noopener">Yahoo Mail</a>
+      <button type="button" id="copierMail">Copier l’adresse</button>
+    </div>
+  </details>
+</li>
         <li>📞 <a href="tel:+221775377720">77 537 77 20</a></li>
         <li>📞 <a href="tel:+221775781247">77 578 12 47</a></li>
         <li>📍  Ndour Ndour,  Kaolack</li>

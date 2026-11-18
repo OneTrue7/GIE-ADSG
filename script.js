@@ -49,7 +49,7 @@ const observateurChiffres = new IntersectionObserver((elements) => {
 }, { threshold: 0.6 });
 
 document.querySelectorAll('[data-count]').forEach(c => observateurChiffres.observe(c));
-const mail = document.getElementById('mail');
+
 if (mail && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
   mail.href = 'mailto:anddefarsunugox@gmail.com';
   mail.removeAttribute('target');
@@ -73,5 +73,31 @@ if (wa) {
   window.addEventListener('pageshow', fermerWa);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) fermerWa();
+  });
+}
+const mail = document.getElementById('mail');
+const estMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+if (mail && !estMobile) {
+  mail.href = 'https://mail.google.com/mail/?view=cm&to=anddefarsunugox@gmail.com&su=Demande%20d%27information';
+  mail.target = '_blank';
+  mail.rel = 'noopener';
+}
+
+const copier = document.getElementById('copierMail');
+if (copier) {
+  copier.addEventListener('click', async () => {
+    const adresse = 'anddefarsunugox@gmail.com';
+    try {
+      await navigator.clipboard.writeText(adresse);
+    } catch (e) {
+      const t = document.createElement('textarea');
+      t.value = adresse;
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand('copy');
+      t.remove();
+    }
+    copier.textContent = 'Copié ✔';
+    setTimeout(() => { copier.textContent = 'Copier'; }, 2000);
   });
 }
