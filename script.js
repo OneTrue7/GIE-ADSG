@@ -72,3 +72,31 @@ if (wa) {
     if (!document.hidden) fermerWa();
   });
 }
+const lienMail = document.getElementById('lienMail');
+if (lienMail) {
+  const adresse = 'anddefarsunugox@gmail.com';
+  const sujet = 'Demande d’information';
+
+  lienMail.addEventListener('click', (e) => {
+    e.preventDefault();
+    let applicationOuverte = false;
+    const marquer = () => { applicationOuverte = true; };
+
+    window.addEventListener('blur', marquer, { once: true });
+    document.addEventListener('visibilitychange', marquer, { once: true });
+
+    window.location.href = 'mailto:' + adresse + '?subject=' + encodeURIComponent(sujet);
+
+    setTimeout(() => {
+      window.removeEventListener('blur', marquer);
+      document.removeEventListener('visibilitychange', marquer);
+      if (!applicationOuverte) {
+        window.open(
+          'https://mail.google.com/mail/?view=cm&to=' + adresse + '&su=' + encodeURIComponent(sujet),
+          '_blank',
+          'noopener'
+        );
+      }
+    }, 1500);
+  });
+}
